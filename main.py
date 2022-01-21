@@ -16,6 +16,10 @@ def name(value):
     """Return a friendly HTTP greeting."""
     return 'Welcome to the web,%s!' % value
 
+@app.route('/gender/<value>')
+def gender(value):
+    """Return a friendly HTTP greeting."""
+    return 'Welcome to the web, %s!' % value
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
