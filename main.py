@@ -1,6 +1,3 @@
-import sys
-sys.path.insert(0, "/home/wcy505823098/.delivery/lib/python3.7/site-packages")
-
 from flask import Flask
 
 app = Flask(__name__)
@@ -9,12 +6,13 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     """Return a friendly HTTP greeting."""
-    return 'Welcome to the web!'
+    return '<h1>Welcome to the web!<h1>\
+    <img src="https://bluelightliving.com/wp-content/uploads/2020/09/Duke-University-Duke-Chapel-1-1-1080x675.jpg">'
 
 @app.route('/name/<value>')
 def name(value):
     """Return a friendly HTTP greeting."""
-    return 'Welcome to the web,%s!' % value
+    return 'Welcome to the web, %s!' % value
 
 @app.route('/gender/<value>')
 def gender(value):
