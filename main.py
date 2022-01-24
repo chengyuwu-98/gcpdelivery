@@ -1,6 +1,13 @@
 from flask import Flask
 from flask import jsonify
 from flask import render_template
+from flask import request
+
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+import numpy as np
+import pickle
+
 import pandas as pd
 import wikipedia
 
@@ -13,6 +20,29 @@ def depression_detection():
     return render_template('index.html')
     # return '<h1>Welcome to the web!<h1>\
     # <img src="https://bluelightliving.com/wp-content/uploads/2020/09/Duke-University-Duke-Chapel-1-1-1080x675.jpg">'
+
+@app.route('/predict', methods=['POST', 'GET'])
+def depression_prediction():
+    """Return the prediction result of depression."""
+    ### Load model
+    scaler_file = open("scaler.pickle", "rb")
+    scaler = pickle.load(scaler_file)
+    model_file = open("model.pickle", "rb")
+    model = pickle.load(model_file)
+    print(request.args)
+    ### Load input values
+    param_list = ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'TIPI1', 'TIPI2', 'TIPI3', 'TIPI4', 'TIPI5', 'TIPI6', 'TIPI7', 'TIPI8', 'TIPI9', 'TIPI10', 'Education', 'Urban', 'Gender', 'Engnat', 'Age', 'Hand', 'Religion', 'Orientation', 'Race', 'Voted', 'Married', 'Familysize']
+    x_list = []
+    for param in param_list:
+        x_list.append(float(request.args.get(param)))
+    x_list = np.array(x_list)
+    x_list = np.reshape(x_list, [1, -1])
+    x_scale = scaler.transform(x_list)
+    depression_level = model.predict(x_scale)
+    return "Your depression level is : %s" %depression_level[0]
+    # return '<h1>Welcome to the web!<h1>\
+    # <img src="https://bluelightliving.com/wp-content/uploads/2020/09/Duke-University-Duke-Chapel-1-1-1080x675.jpg">'
+
 
 @app.route('/name/<value>')
 def name(value):
