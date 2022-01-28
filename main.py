@@ -1,13 +1,13 @@
 from flask import Flask
-from flask import jsonify
+#from flask import jsonify
 from flask import render_template
 from flask import request
 
-from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import RandomForestClassifier
+#from sklearn.preprocessing import StandardScaler
+#from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 import pickle
-import pandas as pd
+#import pandas as pd
 
 
 app = Flask(__name__)
