@@ -7,9 +7,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 import pickle
-
 import pandas as pd
-import wikipedia
+
 
 app = Flask(__name__)
 
