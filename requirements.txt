@@ -1,4 +1,5 @@
 flask==1.1.1
+scikit-learn
 pytest 
 pylint
 pandas
