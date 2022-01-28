@@ -6,15 +6,12 @@
 
 import numpy as np
 import pandas as pd
-import seaborn as sb
-import matplotlib.pyplot as plt
-from matplotlib.ticker import FuncFormatter
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.model_selection import GridSearchCV, RepeatedStratifiedKFold, train_test_split
 from sklearn.metrics import confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
-from itertools import product
+
 
 
 # In[2]:
