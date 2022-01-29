@@ -15,7 +15,10 @@ When opening the website, there are total 36 questions you need to answer, which
 <img width="567" alt="1643404566(1)" src="https://user-images.githubusercontent.com/76429734/151622551-b3c7635a-2ebf-4b32-b15d-cbfaff37934c.png">
 
 
-After finishing and submiiting your answers, it will return you precited depression level. 
+After finishing and submiiting your answers, it will return your precited depression level. There are 5 differenct levels of predicted depression, normal, mild, moderate, severe, and extremely severe. People can take actions or ask for help based on their predicted result. 
+
+
+
 
 ## Technique use 
 1. Machine Learning
